@@ -13,11 +13,11 @@ Plugin.create :mikutter_show_rate do
 	i = 0
 
 	for str in currency do
-		api = "http://rate-exchange.appspot.com/currency?from=" + str + "&to=jpy"
+		api = "http://api.aoikujira.com/kawase/json/" + str
 		source = open(api).read()
 		json = JSON.parser.new(source)
 		hash = json.parse()
-		rate[i] = hash['rate']
+		rate[i] = hash['JPY']
 		i += 1
 	end
 
